@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Random;
 
 public class Main {
@@ -28,9 +29,8 @@ public class Main {
         double tauxReussite = ((double) nombreReussites / nombreEssais) * 100;
 
         // Sauvegarder le résultat dans un fichier en mode "append" (ajout)
-        try (FileWriter writer = new FileWriter("answer_associativity.txt", true)) { // "true" pour ajouter au fichier existant
-            writer.write(String.format("%.2f%%\n", tauxReussite));
-            System.out.println(tauxReussite);
+        try (FileWriter writer = new FileWriter("answer_associativity.txt")) { // "true" pour ajouter au fichier existant
+            writer.write(String.format(Locale.ENGLISH, "%.2f\n", tauxReussite));
         } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
             e.printStackTrace();
