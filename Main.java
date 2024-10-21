@@ -11,14 +11,14 @@ public class Main {
         Random random = new Random();
 
         for (int i = 0; i < nombreEssais; i++) {
-            // Générer des valeurs aléatoires pour x, y, z
-            double x = random.nextDouble() * 10; // Limiter l'amplitude des valeurs
-            double y = random.nextDouble() * 10;
-            double z = random.nextDouble() * 10;
+            // Générer des valeurs aléatoires pour x, y, z en float
+            float x = random.nextFloat() * 10; // Limiter l'amplitude des valeurs
+            float y = random.nextFloat() * 10;
+            float z = random.nextFloat() * 10;
 
-            // Vérifier l'associativité de l'addition
-            double gauche = (x + y) + z;
-            double droite = x + (y + z);
+            // Vérifier l'associativité de l'addition en float
+            float gauche = (x + y) + z;
+            float droite = x + (y + z);
 
             if (gauche == droite) {
                 nombreReussites++;
@@ -26,10 +26,10 @@ public class Main {
         }
 
         // Calculer le taux de réussite
-        double tauxReussite = ((double) nombreReussites / nombreEssais) * 100;
+        float tauxReussite = ((float) nombreReussites / nombreEssais) * 100;
 
         // Sauvegarder le résultat dans un fichier en mode "append" (ajout)
-        try (FileWriter writer = new FileWriter("answer_associativity.txt")) { // "true" pour ajouter au fichier existant
+        try (FileWriter writer = new FileWriter("answer_associativity.txt")) { 
             writer.write(String.format(Locale.ENGLISH, "%.2f\n", tauxReussite));
         } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
