@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class Main {
@@ -25,8 +27,12 @@ public class Main {
         // Calculer le taux de réussite
         double tauxReussite = ((double) nombreReussites / nombreEssais) * 100;
 
-        // Afficher le taux de réussite
-        System.out.printf("Taux de réussite : %.2f%%\n", tauxReussite);
+        // Sauvegarder le résultat dans un fichier
+        try (FileWriter writer = new FileWriter("answer_associativity.txt")) {
+            writer.write(String.format("Taux de réussite : %.2f%%\n", tauxReussite));
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
+            e.printStackTrace();
+        }
     }
 }
-
