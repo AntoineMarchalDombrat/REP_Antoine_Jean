@@ -27,11 +27,11 @@ public class Main {
         // Calculer le taux de réussite
         double tauxReussite = ((double) nombreReussites / nombreEssais) * 100;
 
-        // Sauvegarder le résultat dans un fichier
-        try (FileWriter writer = new FileWriter("answer_associativity.txt", false)) { // "false" pour écraser le fichier à chaque fois
+        // Sauvegarder le résultat dans un fichier en mode "append" (ajout)
+        try (FileWriter writer = new FileWriter("answer_associativity.txt", true)) { // "true" pour ajouter au fichier existant
             writer.write(String.format("Taux de réussite : %.2f%%\n", tauxReussite));
-        }
-        catch (IOException e) {
+            System.out.println(tauxReussite);
+        } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
             e.printStackTrace();
         }
