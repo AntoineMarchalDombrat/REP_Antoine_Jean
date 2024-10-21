@@ -1,0 +1,45 @@
+name: Java Associativity Test
+
+# Ce workflow se déclenche lorsque du code est poussé sur la branche "main"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1: Vérifier et cloner le dépôt
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Étape 2: Construire l'image Docker à partir du Dockerfile
+      - name: Build Docker image
+        run: docker build -t associativity-test .
+
+      # Étape 3: Exécuter le conteneur Docker et nommer le conteneur
+      - name: Run Docker container
+        run: docker run --name associativity-container associativity-test
+
+      # Étape 4: Copier le fichier généré depuis le conteneur vers le répertoire local
+      - name: Copy result from Docker container
+        run: docker cp associativity-container:/app/answer_associativity.txt ./answer_associativity.txt
+
+      # Étape 5: Lire et afficher le fichier résultat `answer_associativity.txt`
+      - name: Show results
+        run: cat answer_associativity.txt
+
+      # Étape 6: Pousser les résultats sur le dépôt
+      - name: Commit and push results
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add answer_associativity.txt
+          git commit -m "Update result"
+          git push
+
+      # Étape 7: Nettoyer le conteneur Docker
+      - name: Clean up Docker container
+        run: docker rm associativity-container
