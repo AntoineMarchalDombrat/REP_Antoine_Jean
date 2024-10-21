@@ -29,7 +29,7 @@ public class Main {
 
         // Sauvegarder le résultat dans un fichier en mode "append" (ajout)
         try (FileWriter writer = new FileWriter("answer_associativity.txt", true)) { // "true" pour ajouter au fichier existant
-            writer.write(String.format("Taux de réussite : %.2f%%\n", tauxReussite));
+            writer.write(String.format("%.2f%%\n", tauxReussite));
             System.out.println(tauxReussite);
         } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
