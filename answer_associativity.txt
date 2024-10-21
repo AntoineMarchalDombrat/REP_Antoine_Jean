@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Taux de réussite : 77,30%Taux de réussite : 77,19%
-=======
-77.3
->>>>>>> e32cd84c11c0d8bc145479e4a25b5a4f1181b329
+77.22
