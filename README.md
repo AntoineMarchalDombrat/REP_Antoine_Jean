@@ -68,8 +68,8 @@ Analyse et Visualisation
 Pour une analyse approfondie des résultats, ouvrez le notebook DecisionTree.ipynb. Ce notebook utilise les données de results.csv pour générer des visualisations (arbres de décision, heatmaps, distributions) afin de comprendre l'impact des différentes valeurs sur le taux de réussite.
 Notes
 
-    Environnement
-    Pour exécuter ce projet, assurez-vous d'avoir installé Python et les bibliothèques requises : pandas, numpy, seaborn, matplotlib, et scikit-learn.
+**Environnement**
+Pour exécuter ce projet, assurez-vous d'avoir installé Python et les bibliothèques requises : pandas, numpy, seaborn, matplotlib, et scikit-learn.
 
-    Compatibilité
-    Ce projet a été testé sous Docker pour garantir la reproductibilité dans un environnement contrôlé.
+**Compatibilité**
+Ce projet a été testé sous Docker pour garantir la reproductibilité dans un environnement contrôlé.
