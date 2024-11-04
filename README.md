@@ -7,36 +7,39 @@
    ```bash
    git clone https://gitlab.insa-rennes.fr/Antoine.Marchal-Dombrat/rep_antoine_jean
    cd rep_antoine_jean
-
+   ```
+   
 2. **Installer la version JDK requise**
    Vous devez installer JDK version 21.0.4. Assurez-vous que vous avez la bonne version avec :
    ```bash
    java -version
-
+   ```
+   
 3. **Compilation et Exécution**
    Dans le répertoire contenant Main.java, compilez et exécutez le fichier avec les commandes suivantes :
    ```bash
-    javac Main.java
-    java Main
-
+   javac Main.java
+   java Main
+   ```
     Vous devriez obtenir un résultat autour de 77%.
 
 4. **Docker**
 
    Pour exécuter l'expérience dans un environnement Docker contrôlé, suivez les étapes ci-dessous :
 
-    Construction de l'image Docker
-    Pour construire l'image Docker, utilisez la commande suivante :
+   Construction de l'image Docker
+   Pour construire l'image Docker, utilisez la commande suivante :
 
-    ```bash
-    sudo docker build -t mon-java-app .
-
+   ```bash
+   sudo docker build -t mon-java-app .
+   ```
    Exécution de l'application Docker
    Pour exécuter l'application à partir de l'image Docker, utilisez la commande suivante :
 
    ```bash
    sudo docker run mon-java-app
-
+   ```
+   
 **Description des Fichiers**
 
     associativité.py
