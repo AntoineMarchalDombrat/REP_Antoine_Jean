@@ -63,7 +63,7 @@
     DecisionTree.ipynb
     Un notebook Jupyter utilisé pour effectuer une analyse approfondie des résultats en utilisant un arbre de décision. Il montre les règles de décision, les importances des caractéristiques, et inclut des visualisations telles que des heatmaps et des graphiques de distribution.
 
-*Analyse et Visualisation*
+**Analyse et Visualisation**
 
 Pour une analyse approfondie des résultats, ouvrez le notebook DecisionTree.ipynb. Ce notebook utilise les données de results.csv pour générer des visualisations (arbres de décision, heatmaps, distributions) afin de comprendre l'impact des différentes valeurs sur le taux de réussite.
 Notes
