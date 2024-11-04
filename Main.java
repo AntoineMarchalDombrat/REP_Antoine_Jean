@@ -7,29 +7,30 @@ public class Main {
     public static void main(String[] args) {
         int nombreEssais = 100000; // Nombre de tests aléatoires
         int nombreReussites = 0;
+        double tolerance = 1e-9; // Tolérance pour la comparaison d'égalité
 
         Random random = new Random();
 
         for (int i = 0; i < nombreEssais; i++) {
-            // Générer des valeurs aléatoires pour x, y, z en float
-            float x = random.nextFloat() * 10; // Limiter l'amplitude des valeurs
-            float y = random.nextFloat() * 10;
-            float z = random.nextFloat() * 10;
+            // Générer des valeurs aléatoires pour x, y, z
+            double x = random.nextDouble() * 10; // Limiter l'amplitude des valeurs
+            double y = random.nextDouble() * 10;
+            double z = random.nextDouble() * 10;
 
-            // Vérifier l'associativité de l'addition en float
-            float gauche = (x + y) + z;
-            float droite = x + (y + z);
+            // Vérifier l'associativité de l'addition avec une tolérance
+            double gauche = (x + y) + z;
+            double droite = x + (y + z);
 
-            if (gauche == droite) {
+            if (Math.abs(gauche - droite) < tolerance) {
                 nombreReussites++;
             }
         }
 
         // Calculer le taux de réussite
-        float tauxReussite = ((float) nombreReussites / nombreEssais) * 100;
+        double tauxReussite = ((double) nombreReussites / nombreEssais) * 100;
 
         // Sauvegarder le résultat dans un fichier en mode "append" (ajout)
-        try (FileWriter writer = new FileWriter("answer_associativity.txt")) { 
+        try (FileWriter writer = new FileWriter("answer_associativity.txt", true)) { // "true" pour ajouter au fichier existant
             writer.write(String.format(Locale.ENGLISH, "%.2f\n", tauxReussite));
         } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de la sauvegarde du fichier.");
