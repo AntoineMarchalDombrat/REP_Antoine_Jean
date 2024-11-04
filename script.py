@@ -2,8 +2,8 @@ import os
 import requests
 from math import isclose
 
-# Chemin vers votre fichier de référence
-reference_file_path = os.path.join(os.getcwd(), "answer_associativity.txt")
+# Chemin complet vers le fichier de référence
+reference_file_path = "C:/Users/jeanh/OneDrive/INSA/M2/Reproductibilité/REP_Antoine_Jean/answer_associativity.txt"
 
 # Vérification de l'existence du fichier de référence
 if not os.path.isfile(reference_file_path):
