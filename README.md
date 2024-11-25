@@ -80,8 +80,11 @@ A README.md template is provided
 
 ## Introduction
 
-Briefly introduce the subject of the study, the problem it addresses, and the key results or insights obtained from the reproduction and replication effort.
+The paper "Debunking the Chessboard: Confronting GPTs Against Chess Engines to Estimate Elo Ratings and Assess Legal Move Abilities" explores the ability of GPT models, particularly GPT-3.5-turbo-instruct and GPT-4, to play chess. The study addresses two primary questions:
 
+Can GPT models consistently play legal chess moves?
+What is the Elo rating of these models, reflecting their chess-playing skill?
+The problem arises from anecdotal claims and mixed reports about the chess capabilities of GPT models. Some suggest these models perform exceptionally well, while others highlight frequent errors and illegal moves. This variability underscores the need for a systematic, reproducible analysis to assess the true chess-playing ability of GPTs and their robustness across different configurations and scenarios. By systematically testing models against engines like Stockfish and random chess engines, the study identifies strengths, weaknesses, and variability factors affecting their performance.
 ## Reproducibility
 
 ### How to Reproduce the Results
