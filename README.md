@@ -121,13 +121,22 @@ The problem arises from anecdotal claims and mixed reports about the chess capab
 ## Replicability
 
 ### Variability Factors
-- **List of Factors**: Identify all potential sources of variability (e.g., dataset splits, random seeds, hardware).  
-  Example table:
-  | Variability Factor | Possible Values     | Relevance                                   |
-  |--------------------|---------------------|--------------------------------------------|
-  | Random Seed        | [0, 42, 123]       | Impacts consistency of random processes    |
-  | Hardware           | CPU, GPU (NVIDIA)  | May affect computation time and results    |
-  | Dataset Version    | v1.0, v1.1         | Ensures comparability across experiments   |
+- **List of Factors**:
+We have identified different factors that can influence results :
+Temperature, model choice, activate or desactivate the use of the random motor, 
+
+
+| **Variability Factor**   | **Possible Values**                                   | **Relevance**                                                                 |
+|--------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------|
+| **Temperature Parameter**| `[0.0, 0.5, 1.0]`                                     | Directly affects the randomness of move selection and output diversity.       |
+| **Random Engine Usage**  | `[True, False]`                                       | Changes the behavior of the engine from deterministic to probabilistic.       |
+| **Base PGN Dataset**     | `Dataset A`, `Dataset B`                              | Introduces variability in game data and starting positions.                   |
+| **Folder Sorting Order** | `By Date`, `By Name`                                  | Impacts the sequence of experiment execution and data processing.             |
+| **Illegal Move Handling**| `Ignore`, `Flag`, `Abort Simulation`                  | Determines how errors in games are treated, which could affect downstream stats.|
+| **Model Versions (GPT)** | `GPT-3.5`, `GPT-4`                                    | Variations in model architecture may impact generated moves and decisions.    |
+| **Game Result Logic**    | `Headers`, `Inference`                                | Variability in how results are determined, especially for incomplete games.   |
+| **Meta-information Defaults** | `Explicit`, `Inferred`                          | Missing metadata values (e.g., `temperature`, `nmove`) may require imputation.|
+| **Dataset Splits**       | `[Train/Test/Validation]`                            | If applicable, ensures fair evaluation across different splits of the dataset.|
 
 - **Constraints Across Factors**:  
   - Document any constraints or interdependencies among variability factors.  
